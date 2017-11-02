@@ -824,7 +824,8 @@ public class LLayer extends FormsLayer<LDoc> {
 
         log.info("errorAdd0: %s", edge.getErrors());
 
-        edge.getErrors().add(aError);
+        edge.addError(aError);
+
         log.info("errorAdd1: %s", edge.getErrors());
 
         final ChangeEvent<LLayer> event = new ChangeEvent<>(this, ChangeEvent.cErrorAdd, aSrcView, aSrcInfo);
@@ -835,15 +836,14 @@ public class LLayer extends FormsLayer<LDoc> {
     }
 
 
-    public boolean errorDel(final Errorr aErrorInfo, final DataListener aSrcView, final Object aSrcInfo) {
+    public boolean errorDel(final Errorr aError, final DataListener aSrcView, final Object aSrcInfo) {
         if (readOnly) return false;
 
-
-        Edge e = aErrorInfo.getParent();
-        e.getErrors().remove(aErrorInfo);
+        final Edge e = aError.getParent();
+        e.removeError(aError);
 
         final ChangeEvent<LLayer> event = new ChangeEvent<>(this, ChangeEvent.cErrorDel, aSrcView, aSrcInfo);
-        event.error = aErrorInfo;
+        event.error = aError;
 
         fireEvents(event);
         return true;
