@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: org.purl.jh.feat.profile.creg
+OpenIDE-Module-Implementation-Version: 0
+OpenIDE-Module-Localizing-Bundle: org/purl/jh/feat/profile/creg/Bundle.properties
+
