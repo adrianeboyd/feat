@@ -2,6 +2,7 @@
 package cz.cuni.utkl.czesl.data.layerl;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import org.purl.jh.pml.AbstractCommentedIdedElement;
 import org.purl.jh.pml.location.Location;
@@ -73,6 +74,28 @@ public class Errorr extends AbstractCommentedIdedElement  {
     @Override
     public String toString() {
         return "Error " + tag + " comment:" + getComment();
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 19 * hash + Objects.hashCode(this.tag);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Errorr other = (Errorr) obj;
+        if (!Objects.equals(this.tag, other.tag)) {
+            return false;
+        }
+        return true;
     }
 
 

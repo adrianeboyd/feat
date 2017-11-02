@@ -46,7 +46,7 @@ public class AbstractIdedElement extends AbstractElement implements IdedElement 
     }
 
     @Override
-    public final boolean equals(Object that) {
+    public boolean equals(Object that) {
         if (that == null || getClass() != that.getClass()) {
             return false;
         }
@@ -55,12 +55,12 @@ public class AbstractIdedElement extends AbstractElement implements IdedElement 
     }
 
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         return id.hashCode();
     }
 
     @Override
-    public final int compareTo(Element that) {
+    public int compareTo(Element that) {
         if (that instanceof IdedElement) {
             return compareTo((IdedElement)that);
         }
@@ -69,7 +69,7 @@ public class AbstractIdedElement extends AbstractElement implements IdedElement 
         }
     }
 
-    public final int compareTo(IdedElement that) {
+    public int compareTo(IdedElement that) {
         return this.getId().compareTo(that.getId());
     }    
     
