@@ -44,6 +44,7 @@ import javax.swing.JComponent;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
 import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
 import javax.swing.undo.CannotUndoException;
 import lombok.Getter;
 import lombok.Setter;
@@ -1100,18 +1101,8 @@ public class LayeredGraph extends XObjectScene implements DataListener {
         }
     }
 
-
-    /** todo must exist already; to util */
-    private Component getParentComponent(Component comp) {
-        while (comp != null) {
-            if (comp instanceof LayeredViewTopComponent) return comp;
-            comp = comp.getParent();
-        }
-        return null;
-    }
-
     private LayeredViewTopComponent getLayeredViewTc() {
-        return (LayeredViewTopComponent)getParentComponent(getView());
+        return (LayeredViewTopComponent) SwingUtilities.getAncestorOfClass(LayeredViewTopComponent.class, getView());
     }
 
     /** todo under development */
