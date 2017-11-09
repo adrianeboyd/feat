@@ -9,6 +9,7 @@ import cz.cuni.utkl.czesl.data.layerx.FForm;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.SwingUtilities;
 import org.netbeans.api.visual.action.MoveProvider;
 import org.netbeans.api.visual.action.MoveStrategy;
 import org.netbeans.api.visual.action.WidgetAction;
@@ -272,6 +273,7 @@ public class SentenceWidget extends Widget {
             final LLayer lowerLayer = aSentence.getLayer();
             final LLayer higherLayer = view.getParaModel().getPseudoModel().getLayerAbove(lowerLayer);
             higherLayer.sentenceCopyFromLower(aSentence, view, null);
+            ((LayeredViewTopComponent) SwingUtilities.getAncestorOfClass(LayeredViewTopComponent.class, view.getView())).fullRefresh();
         }
     }
 
