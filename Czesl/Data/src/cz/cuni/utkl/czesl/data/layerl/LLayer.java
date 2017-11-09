@@ -821,6 +821,7 @@ public class LLayer extends FormsLayer<LDoc> {
         if (readOnly) return false;
 
         aError.getParent().getErrors().add(aError);
+        addIdedElement(aError);
 
         final ChangeEvent<LLayer> event = new ChangeEvent<>(this, ChangeEvent.cErrorAdd, aSrcView, aSrcInfo);
         event.error = aError;
@@ -834,6 +835,7 @@ public class LLayer extends FormsLayer<LDoc> {
         if (readOnly) return false;
 
         aError.getParent().getErrors().remove(aError);
+        removeIdedElement(aError);
 
         final ChangeEvent<LLayer> event = new ChangeEvent<>(this, ChangeEvent.cErrorDel, aSrcView, aSrcInfo);
         event.error = aError;

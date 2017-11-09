@@ -122,14 +122,6 @@ public class Edge extends AbstractIdedElement implements Commented {
         return errors;
     }
 
-    public void addError(Errorr aError) {
-        errors.add(aError);
-    }
-
-    public void removeError(Errorr aError) {
-        errors.remove(aError);
-    }
-
     // todo return a list with predictable and consistent order
     public List<Errorr> getErrorsList() {
         return new ArrayList<>(getErrors());
