@@ -114,7 +114,7 @@ enum ErrorSpecs {
         return Arrays.asList(
                 
 //"Tag","subtag","deprecated","manual/auto","menu","description","description","min lower leg","max upper leg","min upper leg","max upper leg","min links","max links","layers",
-"Selection","Verb","","M","Selection - Verb","Selection - Verb","0","-1","0","-1","0","-1","R2",
+"Selection","Verb","","M","Selection - Verb","Selection - Verb","0","-1","0","-1","1","-1","R2",
 "Selection","Prep","","M","Selection - Prep","Selection - Prep","0","-1","0","-1","0","-1","R2",
 "Selection","Sentence","","M","Selection - Sentence","Selection - Sentence","0","-1","0","-1","0","-1","R2",
 "Selection","Other","","M","Selection - Other","Selection - Other","0","-1","0","-1","0","-1","R2",
@@ -130,11 +130,14 @@ enum ErrorSpecs {
 "Punctuation","Other","","M","Punctuation - Other","Punctuation - Other","0","-1","0","-1","0","-1","R2",
 "Word","Capitalization","","M","Word - Capitalization","Word - Capitalization","0","-1","0","-1","0","-1","R1",
 "Word","Stem/Inflection","","M","Word - Stem/Inflection","Word - Stem/Inflection","0","-1","0","-1","0","-1","R1",
+"Word","Boundary","","M","Word - Boundary","Word - Boundary","0","-1","0","-1","0","-1","R1",
 "Word","Non-Word","","M","Word - Non-Word","Word - Non-Word","0","-1","0","-1","0","-1","R1",
 "Word","Other","","M","Word - Other","Word - Other","0","-1","0","-1","0","-1","R1",
 "Lexicon/Style","","","M","Lexicon/Style","Lexicon/Style","0","-1","0","-1","0","-1","R1,R2",
 "Question","","","M","Question","Question","0","-1","0","-1","0","-1","R1,R2",
 "Reading Text","","","M","Reading Text","Reading Text","0","-1","0","-1","0","-1","R1,R2",
+"Copied","Problematic","","M","Copied - Problematic","Copied - Problematic","0","-1","0","-1","0","-1","R2",
+"Secondary","","","M","Secondary","","0","-1","0","-1","0","-1","R2",
 "Problem","","","M","Problem/Other","Problem/Other","0","-1","0","-1","0","-1","R1,R2"
 );
     }
