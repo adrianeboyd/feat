@@ -3,12 +3,13 @@ package cz.cuni.utkl.czesl.data.layerl;
 import com.google.common.collect.Sets;
 import cz.cuni.utkl.czesl.data.layerx.FForm;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.purl.jh.pml.AbstractIdedElement;
 import org.purl.jh.pml.Commented;
-import org.purl.jh.pml.Layer;
 import org.purl.jh.pml.location.Location;
 import org.purl.jh.util.col.Cols;
 
@@ -127,6 +128,26 @@ public class Edge extends AbstractIdedElement implements Commented {
         return new ArrayList<>(getErrors());
     }
 
+    /**
+     * List of errors sorted by error tag.
+     *
+     * @return list of errors
+     */
+    public List<Errorr> getSortedErrorsList() {
+        //final ErrorTagset tagset = getView().getProfile().getTagset(layer);
+
+        //for ( ErrorTag tag : tagset.getTags() ) {
+        List<Errorr> errorsList = new ArrayList<>(errors);
+
+        Collections.sort(errorsList, new Comparator<Errorr>() {
+            @Override
+            public int compare(Errorr e1, Errorr e2) {
+                return e1.getTag().compareTo(e2.getTag());
+            }
+        });
+
+        return errorsList;
+    }
 
     @Override
     public String getComment() {
