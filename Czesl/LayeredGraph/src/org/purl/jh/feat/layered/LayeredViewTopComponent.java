@@ -11,6 +11,7 @@ import cz.cuni.utkl.czesl.data.layerw.WPara;
 import cz.cuni.utkl.czesl.data.layerx.FForm;
 import cz.cuni.utkl.czesl.data.layerx.FormsLayer;
 import cz.cuni.utkl.czesl.data.layerx.Para;
+import java.awt.BorderLayout;
 import org.purl.jh.feat.util0.gui.pager.CurListener;
 import java.awt.event.FocusEvent;
 import javax.swing.event.ChangeEvent;
@@ -23,8 +24,12 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.beans.PropertyVetoException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -33,6 +38,7 @@ import java.util.prefs.Preferences;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JEditorPane;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -61,6 +67,7 @@ import org.openide.util.LookupEvent;
 import org.openide.util.LookupListener;
 import org.openide.util.NbBundle;
 import org.openide.util.NbPreferences;
+import org.openide.util.Utilities;
 import org.openide.util.lookup.AbstractLookup;
 import org.openide.util.lookup.InstanceContent;
 import org.openide.util.lookup.ProxyLookup;
@@ -459,7 +466,9 @@ public final class LayeredViewTopComponent extends CloneableTopComponent impleme
         refreshViewButton = new javax.swing.JButton();
         exportButton = new javax.swing.JButton();
         printButton = new javax.swing.JButton();
+        textSearchButton = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
+        jSeparator2 = new javax.swing.JToolBar.Separator();
         jLabel1 = new javax.swing.JLabel();
         xSpacingControl = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
@@ -536,7 +545,21 @@ public final class LayeredViewTopComponent extends CloneableTopComponent impleme
             }
         });
         jToolBar1.add(printButton);
+
+        textSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/purl/jh/feat/layered/icons/research.png"))); // NOI18N
+        org.openide.awt.Mnemonics.setLocalizedText(textSearchButton, org.openide.util.NbBundle.getMessage(LayeredViewTopComponent.class, "LayeredViewTopComponent.textSearchButton.text")); // NOI18N
+        textSearchButton.setToolTipText(org.openide.util.NbBundle.getMessage(LayeredViewTopComponent.class, "LayeredViewTopComponent.textSearchButton.toolTipText")); // NOI18N
+        textSearchButton.setFocusable(false);
+        textSearchButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        textSearchButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        textSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textSearchButtonActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(textSearchButton);
         jToolBar1.add(jSeparator3);
+        jToolBar1.add(jSeparator2);
 
         org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(LayeredViewTopComponent.class, "LayeredViewTopComponent.jLabel1.text_1")); // NOI18N
         jToolBar1.add(jLabel1);
@@ -682,6 +705,20 @@ public final class LayeredViewTopComponent extends CloneableTopComponent impleme
         setProfile(tmp);
         fullRefresh();
     }//GEN-LAST:event_profileComboActionPerformed
+
+    private void textSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchButtonActionPerformed
+        JFrame frame = new JFrame("Text Search");
+        frame.setLayout(new BorderLayout());
+        System.out.println(pseudoModel.getTextLayer().getFile().toURL().toString());
+        try {
+            frame.add(new FindTextPane(new FileReader(Utilities.toFile(pseudoModel.getTextLayer().getFile().toURI()))));
+        } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
+        }
+        frame.setSize(600, 800);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }//GEN-LAST:event_textSearchButtonActionPerformed
 
     private void setProfile(Profile profile) {
         if (this.profile == profile ) return;
@@ -1106,6 +1143,7 @@ public final class LayeredViewTopComponent extends CloneableTopComponent impleme
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JSplitPane jSplitPane1;
@@ -1116,6 +1154,7 @@ public final class LayeredViewTopComponent extends CloneableTopComponent impleme
     private javax.swing.JLabel profileLabel;
     private javax.swing.JButton refreshViewButton;
     private javax.swing.JToggleButton splitToggle;
+    private javax.swing.JButton textSearchButton;
     private javax.swing.JSpinner xSpacingControl;
     private javax.swing.JSpinner ySpacingControl;
     // End of variables declaration//GEN-END:variables
