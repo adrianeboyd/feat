@@ -135,8 +135,10 @@ enum ErrorSpecs {
 "Word","Non-Word","","M","Word - Non-Word","Word - Non-Word","0","-1","0","-1","0","-1","R1",
 "Word","Other","","M","Word - Other","Word - Other","0","-1","0","-1","0","-1","R1",
 "Lexicon/Style","","","M","Lexicon/Style","Lexicon/Style","0","-1","0","-1","0","-1","R1,R2",
+"Typo","POS","","M","Typo - POS","Typo - POS","0","-1","0","-1","0","-1","R2",
 "Question","","","M","Question","Question","0","-1","0","-1","0","-1","R1,R2",
 "Reading Text","","","M","Reading Text","Reading Text","0","-1","0","-1","0","-1","R1,R2",
+"Answer Meaning","","","M","Answer Meaning","Answer Meaning","0","-1","0","-1","0","-1","R2",
 "Copied","Problematic","","M","Copied - Problematic","Copied - Problematic","0","-1","0","-1","0","-1","R2",
 "Secondary","","","M","Secondary","","0","-1","0","-1","0","-1","R2",
 "Problem","","","M","Problem/Other","Problem/Other","0","-1","0","-1","0","-1","R1,R2"
