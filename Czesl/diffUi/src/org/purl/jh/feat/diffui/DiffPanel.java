@@ -217,7 +217,7 @@ public class DiffPanel extends javax.swing.JPanel implements Lookup.Provider, Ac
         setLayout(new java.awt.BorderLayout());
         add(markStripe1, java.awt.BorderLayout.PAGE_END);
 
-        layersViewSplit.setDividerLocation(150);
+        layersViewSplit.setDividerLocation(320);
         layersViewSplit.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         add(layersViewSplit, java.awt.BorderLayout.CENTER);
 
