@@ -25,10 +25,17 @@ public class Api {
     public static void openDiff(LayerDataObject<?> dobj1, LayerDataObject<?> dobj2) {
         // todo check compatibility? 
         String name = dobj1.getName() + " / " + dobj2.getName();
-        DiffPanel panel = new DiffPanel(dobj1,dobj2); // todo use lookup instead of casting
-        TopComponent tc = new DiffTopComponent(name,panel);
-        tc.open();
-        tc.requestFocus();
+        try {
+            DiffPanel panel = new DiffPanel(dobj1, dobj2); // todo use lookup instead of casting
+            TopComponent tc = new DiffTopComponent(name, panel);
+            tc.open();
+            tc.requestFocus();
+        } catch (Exception ex) { // TODO: figure out #10, improve brute force treatment
+                                 // and multiple notification windows here
+            String msg = String.format("Cannot open %s",  name);
+            Notify.error(ex, msg);
+            log.severe(ex, msg);
+        }
     }
     
     /** To util */
