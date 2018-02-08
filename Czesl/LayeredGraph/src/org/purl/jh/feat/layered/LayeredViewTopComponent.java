@@ -24,12 +24,9 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.beans.PropertyVetoException;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -709,9 +706,11 @@ public final class LayeredViewTopComponent extends CloneableTopComponent impleme
     private void textSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textSearchButtonActionPerformed
         JFrame frame = new JFrame("Text Search");
         frame.setLayout(new BorderLayout());
-        System.out.println(pseudoModel.getTextLayer().getFile().toURL().toString());
+
         try {
-            frame.add(new FindTextPane(new FileReader(Utilities.toFile(pseudoModel.getTextLayer().getFile().toURI()))));
+            FindTextPane findTextPane = new FindTextPane(new FileReader(Utilities.toFile(pseudoModel.getTextLayer().getFile().toURI())));
+            frame.add(findTextPane);
+            frame.getRootPane().setDefaultButton(findTextPane.findButton);
         } catch (IOException ex) {
             Exceptions.printStackTrace(ex);
         }
