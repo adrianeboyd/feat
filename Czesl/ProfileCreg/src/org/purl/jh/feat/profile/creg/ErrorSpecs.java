@@ -140,7 +140,8 @@ enum ErrorSpecs {
 "Reading Text","","","M","Reading Text","Reading Text","0","-1","0","-1","0","-1","R1,R2",
 "Answer Meaning","","","M","Answer Meaning","Answer Meaning","0","-1","0","-1","0","-1","R2",
 "Copied","Problematic","","M","Copied - Problematic","Copied - Problematic","0","-1","0","-1","0","-1","R2",
-"Secondary","","","M","Secondary","","0","-1","0","-1","0","-1","R2",
+"Secondary","","","M","Secondary","Secondary","0","-1","0","-1","0","-1","R2",
+"Extraneous","","","M","Extraneous","Extraneous","0","-1","0","-1","0","-1","R2",
 "Problem","","","M","Problem/Other","Problem/Other","0","-1","0","-1","0","-1","R1,R2"
 );
     }
